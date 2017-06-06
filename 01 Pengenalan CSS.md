@@ -2,12 +2,11 @@
 - [Apa itu CSS?](#apa-itu-css)
 - [Inline, Internal dan Eksternal CSS](#inline-internal-dan-eksternal-css)
 - [CSS Rule dan Selector](#css-rule-dan-selector)
-- CSS Comment
-- Style Cascade dan Inheritance
+- [CSS Comment](#css-comment)
 
 ## Apa itu CSS?
 CSS kepanjangan dari Cascading Style Sheets.
-- Cascading mengacu pada cara CSS menerapkan suatu style di atas yang lain (top-down)
+- Cascading mengacu pada cara CSS menerapkan suatu style di atas yang lain (top-down). Elemen child akan mendapatkan karakteristik style dari elemen parent.
 - Style Sheets mengontrol tampilan dari halaman web
 
 CSS dan HTML
@@ -70,7 +69,7 @@ Untuk mereferensikan file CSS pada HTML dapat menggunakan tag `<link>`. Tag `<li
 <html>
   <head>
     <title>Halaman Pertama</title>
-    <link rel="stylesheet" href="style.css"
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <p>Contoh paragraf 1</p>
@@ -119,8 +118,9 @@ p{
 ```
 
 ### id dan class Selector
-id selector meyediakan style pada elemen HTML dengan memanfaatkan atribut id.
+id selector meyediakan style pada elemen HTML dengan memanfaatkan atribut id sedangkan class selector menyediakan style pada elemen HTML dengan memanfaatkan atribut class.
 
+Contoh selector dengan menggunakan id
 #### HTML
 ``` html
 <div id="intro">
@@ -137,11 +137,72 @@ id selector meyediakan style pada elemen HTML dengan memanfaatkan atribut id.
 }
 ```
 
-> Untuk memilih elemen dengan spesifik id, gunakan karakter hash (#) diikuti dengan nama dari id tersebut.
+Contoh selector dengan menggunakan class
+#### HTML
+``` html
+<div class="intro">
+  <p>Contoh paragraf 1</p>
+</div>
+<p>Contoh paragraf 2</p>
+```
 
-## Descendant Selector
+#### CSS
+``` css
+.intro{
+  color: white;
+  background-color: red;
+}
+```
 
+Output id dan class selector:
 
+![alt text][id_class_selector]
+
+> Untuk memilih elemen dengan spesifik id, gunakan karakter hash (#) diikuti dengan nama dari id tersebut. Sedangkan untuk memilih elemen dengan spesifik class, gunakan karakter titik (.) diikuti dengan nama dari class tersebut.
+
+### Descendant Selector
+Descendant selector digunakan untuk memilih elemen yang merupakan turunan dari elemen yang lain.
+
+Contoh memilih tag `<em>` sebagai target
+#### HTML
+``` html
+<div id="intro">
+  <p class="pertama">Contoh <em>paragraf</em> 1</p>
+  <p>Contoh paragraf 2</p>
+</div>
+<p class="pertama">Contoh paragaf 3</p>
+<p>Contoh paragraf 4</p>
+```
+
+#### CSS
+``` css
+#intro .pertama em{
+  color: white;
+  background-color: red;
+}
+```
+
+Output:
+
+![alt text][descendant_selector]
+
+## CSS Comment
+Comment digunakan untuk menjelaskan kode dan bermanfaat pada saat mengedit kode dimasa yang akan datang. Comment juga dapat diterapkan untuk single-line comment ataupun multi-line comment.
+``` css
+/* ini adalah komentar */
+```
+
+Contoh:
+``` css
+p{
+  color: white;
+  /* font-size: 150%; */
+  background-color: red;
+}
+```
 
 [inline_css]: https://scontent.fcgk9-1.fna.fbcdn.net/v/t1.0-9/18920408_10212793690467702_3353852526657708350_n.jpg?oh=032357b265669c03d87876dfade498cc&oe=59AFA3AD "Inline CSS"
 [internal_css]: https://scontent.fcgk8-1.fna.fbcdn.net/v/t1.0-9/18839239_10212793732668757_2354856348339005560_n.jpg?oh=1bd5d6563cfa77f9522cc878dd8324cc&oe=59A25477 "Internal CSS"
+[id_class_selector]: https://scontent.fcgk8-1.fna.fbcdn.net/v/t1.0-9/18893286_10212794201840486_3606640922863385699_n.jpg?oh=d4fa34ff2555fd506ba8bdeb4b304a2b&oe=59A1B914 "ID Class Selector"
+[descendant_selector]: https://scontent.fcgk8-1.fna.fbcdn.net/v/t1.0-9/18881864_10212794201880487_2563473811610647690_n.jpg?oh=a63f051153f10da597dfecbb2cf5fa85&oe=59A0D8ED "Descendant Selector"
+
